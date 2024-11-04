@@ -177,10 +177,6 @@ if [[ $KSU_ENABLED == "true" ]] && [[ ! -z "$KERNELSU_DIR" ]]; then
     	    cp ./patches/KernelSU/Backport/backport_path_umount.patch $KERNEL_DIR/
             cd $KERNEL_DIR && patch -p1 < backport_path_umount.patch
             msg "Backporting path_umount from 5.10.9..." && cd $WORKDIR
-        else
-            cp ./patches/KernelSU/Backport/backport_path_umount_part1.patch $KERNEL_DIR/ 
-            cd $KERNEL_DIR && patch -p1 < backport_path_umount_part1.patch
-            msg "Partially backporting path_umount from 5.10.9..." && cd $WORKDIR
         fi
     fi
 
@@ -233,10 +229,6 @@ elif
     	    cp ./patches/KernelSU/Backport/backport_path_umount.patch $KERNEL_DIR/
             cd $KERNEL_DIR && patch -p1 < backport_path_umount.patch
             msg "Backporting path_umount from 5.10.9..." && cd $WORKDIR
-        else
-            cp ./patches/KernelSU/Backport/backport_path_umount_part1.patch $KERNEL_DIR/ 
-            cd $KERNEL_DIR && patch -p1 < backport_path_umount_part1.patch
-            msg "Partially backporting path_umount from 5.10.9..." && cd $WORKDIR
         fi
         cp ./patches/KernelSU/revert_drop_non_gki.patch  $KERNEL_DIR/KernelSU/
         cd $KERNEL_DIR/KernelSU && patch -p1 < revert_drop_non_gki.patch
