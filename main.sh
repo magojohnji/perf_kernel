@@ -23,7 +23,7 @@ COMMON_DEFCONFIG=""
 DEVICE_ARCH="arch/arm64"
 
 # Clang
-CLANG_REPO="itsshashanksp/android_prebuilts_clang_host_linux-x86_clang-r530567"
+CLANG_LINK="https://github.com/ZyCromerZ/Clang/releases/download/20.0.0git-20241124-release/Clang-20.0.0git-20241124.tar.gz"
 
 # ------------------------------------------------------------
 
@@ -69,6 +69,9 @@ fi
 # Set variables
 WORKDIR="$(pwd)"
 
+wget -O Clang.tar.gz $CLANG_LINK
+mkdir $WORKDIR/Clang
+tar -zxvf Clang.tar.gz -C $WORKDIR/Clang/
 CLANG_DIR="$WORKDIR/Clang/bin"
 
 KERNEL_REPO="${KERNEL_GIT::-4}/"
